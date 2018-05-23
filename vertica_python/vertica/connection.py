@@ -144,6 +144,7 @@ class Connection(object):
         if connection_timeout is not None:
             raw_socket.settimeout(connection_timeout)
         raw_socket.connect((host, port))
+        raw_socket.settimeout(None)
 
         ssl_options = self.options.get('ssl')
         if ssl_options is not None and ssl_options is not False:
