@@ -396,6 +396,7 @@ class Cursor(object):
     def format_quote(self, param, is_csv):
         # TODO Make sure adapt() behaves properly
         if is_csv:
+            # return '"{0}"'.format(re.escape(param).encode('utf8'))
             return '"{0}"'.format(re.escape(param))
         else:
             return QuotedString(param.encode(UTF_8, self.unicode_error)).getquoted()
